@@ -27,7 +27,6 @@
                     data = data.substring(0,data.length - 1);
                     data = JSON.parse(data);
                     model.photos = data.photos;
-                    // console.log(data.photos);
                 });
         }
 

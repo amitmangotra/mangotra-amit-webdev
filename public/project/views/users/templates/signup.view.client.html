@@ -1,0 +1,41 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Experience the Nearby Happenings</a>
+            </div>
+        </div>
+    </nav>
+    <div class="centered-wrapper">
+        <div class="container-fluid centered-content">
+            <h1>Sign Up</h1>
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
+            </div>
+            <input  class="form-control"
+                    name="username"
+                    ng-model="user.username"
+                    placeholder="username"
+                    id ="username"/>
+            <input class="form-control"
+                   name="password"
+                   ng-model="user.password"
+                   placeholder="password"
+                   id ="password"
+                   type = "password"/>
+            <input class="form-control"
+                   name="verify_password"
+                   ng-model="user.verify_password"
+                   placeholder="verify password"
+                   id ="password1"
+                   type = "password"/>
+
+            <a class="btn btn-primary btn-block btn-default"
+               ng-click="model.registerUser(user)"
+               role="button">Register</a>
+            <a class="btn btn-danger btn-block btn-default"
+               href="#!/login"
+               role="button">Cancel</a>
+        </div>
+    </div>
+</div>

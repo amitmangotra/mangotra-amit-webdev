@@ -1,0 +1,54 @@
+h1 {
+    color: white;
+}
+
+h1, input {
+    margin-bottom: 15px;
+}
+
+body {
+    background: #00bf8f;
+    background: -webkit-linear-gradient(to right, #001510, #00bf8f);
+    background: linear-gradient(to right, #001510, #00bf8f);
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+
+a.hover {
+    text-decoration: none;
+}
+
+.navbar {
+    background: black;
+    border-color: black;
+
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-brand {
+    font-family: Papyrus;
+    font-style: normal;
+}
+
+.centered-wrapper {
+    position: relative;
+    text-align: center;
+}
+
+.centered-wrapper:before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 0; height: 100%;
+    vertical-align: middle;
+}
+
+.centered-content {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+

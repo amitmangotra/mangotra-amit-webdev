@@ -1,0 +1,32 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Experience the Nearby Happenings</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid centered-wrapper">
+        <div class="centered-content">
+            <h1>Login</h1>
+            <input class="form-control"
+                   name="username"
+                   ng-model="model.user.username"
+                   placeholder="username"
+                   id ="username"/>
+            <input class="form-control"
+                   name="password"
+                   ng-model="model.user.password"
+                   placeholder="password"
+                   id ="password"
+                   type = "password"/>
+
+            <a class="btn btn-primary btn-block btn-default"
+               href="profile.view.client.html"
+               role="button">Login</a>
+            <a class="btn btn-danger btn-block btn-default"
+               href="#!/register"
+               role="button">Sign Up</a>
+        </div>
+    </div>
+</div>
