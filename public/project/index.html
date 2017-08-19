@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ExperienceNearbyHappeningsApp">
+<html lang="en" ng-app="ExperienceNearbyHappeningsApp" class="ng-scope">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=0">
@@ -7,18 +7,47 @@
     <script src="../vendor/angular/angular-route.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="css/styles.css"
-          rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <script src="javascripts/image-slideshow.js"></script>
 
     <script src="views/users/controllers/login.controller.client.js"></script>
     <script src="views/users/controllers/signup.controller.client.js"></script>
     <script src="views/users/controllers/profile.controller.client.js"></script>
+    <script src="views/homepage/controllers/homepage.controller.client.js"></script>
+    <script src="views/homepage/controllers/search-details.controller.client.js"></script>
+    <script src="views/users/controllers/allUsers.controller.client.js"></script>
+    <script src="views/events/controllers/create-event.controller.client.js"></script>
+    <script src="views/users/controllers/followers.controller.client.js"></script>
+    <script src="views/events/controllers/allEvents.controller.client.js"></script>
+    <script src="views/events/controllers/totalEvents.controller.client.js"></script>
+    <script src="views/stories/controllers/createStory.controller.client.js"></script>
+
+
+
+
+    <script src="services/homepage.service.client.js"></script>
+    <script src="services/users.service.client.js"></script>
+    <script src="services/events.service.client.js"></script>
+    <script src="services/story.service.client.js"></script>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="css/styles.css"
+          rel="stylesheet"/>
+
+
+
     <!--<script src="javascripts/profile.js"></script>-->
     <title>Project Home Page</title>
 </head>
 <body>
-    <div ng-view></div>
+    <div ng-view class="ng-scope"></div>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-text pull-left"
+                   ng-href="#!/profile"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">ExperienceIt-ShareIt</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid centered-wrapper">
+        <h2 class="am-gly">SHARE YOUR EXPERIENCE</h2>
+        <div ng-show="model.errorMessage" class="alert alert-danger">{{model.errorMessage}}</div>
+        <div class="panel panel-default">
+            <div class="panel-heading centered-wrapper">
+                <h4>Tell Your Story</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-12">
+                    <label for="event">Select Event</label>
+                    <select name="role"
+                            ng-model="user.roles"
+                            class="form-control form-group"
+                            id="event">
+                        <option ng-model="model.story.event"
+                                ng-repeat="event in model.events">{{event.title}}</option>
+                    </select>
+                    <label for="title">Title of Story</label>
+                    <input class="form-control"
+                           name="title"
+                           ng-model="model.story.title"
+                           id ="title"/>
+                    <label for="description">Write your experience</label>
+                    <textarea class="form-control"
+                              name="description"
+                              rows="10"
+                              ng-model="model.story.description"
+                              id ="description"></textarea>
+                    <a class="btn btn-primary btn-default btn-block"
+                       ng-click="model.publishStory(model.story)">Post Story</a>
+                    <a ng-href="#!/profile" class="btn btn-danger btn-default btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

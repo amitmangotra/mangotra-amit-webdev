@@ -5,6 +5,16 @@
 
     function configuration($routeProvider) {
         $routeProvider
+            .when("/", {
+                templateUrl: "views/homepage/templates/homepage.view.client.html",
+                controller: "homepageController",
+                controllerAs: "model"
+            })
+            .when("/:urlname/events/:eventId", {
+                templateUrl: "views/homepage/templates/search-details.view.client.html",
+                controller: "detailsController",
+                controllerAs: "model"
+            })
             .when("/login", {
                 templateUrl: "views/users/templates/login.view.client.html",
                 controller: "loginController",
@@ -16,9 +26,75 @@
                 controllerAs: "model"
             })
             .when("/profile", {
-                templateUrl: "view/users/templates/profile.view.client.html",
+                templateUrl: "views/users/templates/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/users/following", {
+                templateUrl: "views/users/templates/allUsers.view.client.html",
+                controller: "allUsersController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/users/followers", {
+                templateUrl: "views/users/templates/followers.view.client.html",
+                controller: "followersController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/event/new", {
+                templateUrl: "views/events/templates/create-event.view.client.html",
+                controller: "createEventController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/event", {
+                templateUrl: "views/events/templates/allEventsByUser.view.client.html",
+                controller: "allEventsController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/user/events", {
+                templateUrl: "views/events/templates/allEvents.view.client.html",
+                controller: "totalEventsController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
+            })
+            .when("/story/new", {
+                templateUrl: "views/stories/templates/createStory.view.client.html",
+                controller: "createStoryController",
+                controllerAs: "model",
+                resolve: {
+                    user: checkLogin
+                }
             })
     }
+    function checkLogin(UserService, $q, $location) {
+        var deferred = $q.defer();
+        UserService
+            .checkLogin()
+            .then(function (user) {
+                if(user === '0') {
+                    deferred.reject();
+                    $location.url("/");
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
+
 })();

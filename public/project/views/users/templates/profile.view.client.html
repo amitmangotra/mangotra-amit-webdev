@@ -1,10 +1,185 @@
 <div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ng-href="#!/">Experience it-Share it</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav nav-pills navbar-right">
+                    <li><div class="navbar-text"><a class="am-gly" href="#">Home</a></div></li>
+                    <li><div class="navbar-text"><a class="am-gly" href="#">Stories</a></div></li>
+                    <li>
+                        <div ng-if="model.user.roles === 'Event Organizer'"
+                             class="navbar-text">
+                            <a class="am-gly" ng-href="#!/event/new">
+                                Create Event
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div ng-if="model.user.roles === 'End User'"
+                             class="navbar-text">
+                            <a class="am-gly" ng-href="#!/story/new">
+                                Share Story
+                            </a>
+                        </div>
+                    </li>
+                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/">Logout</a></div></li>
+                </ul>
+            </div>
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly" href="#!/login">Login</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Create Event</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Share Story</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Home</a>-->
+            <!--</div>-->
+        </div>
+    </nav>
     <div class="container-fluid">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-3">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <div class="row profile">
+            <div class="col-sm-4 col-xs-12">
+                <div class="panel panel-default centered-wrapper">
+                    <div class="panel-heading centered-wrapper"><h4>Profile</h4></div>
+                    <div class="panel-body">
+                        <label for="username">Username</label>
+                        <input class="form-control"
+                               readonly
+                               name="username"
+                               ng-model="model.user.username"
+                               id ="username"/>
+                        <label for="email">Email</label>
+                        <input class="form-control"
+                               name="email"
+                               ng-model="model.user.email"
+                               placeholder="example@domain.com"
+                               id ="email"
+                               type = "email"/>
+                        <label for="first_Name">First Name</label>
+                        <input class="form-control"
+                               name="firstName"
+                               ng-model="model.user.firstName"
+                               placeholder="First Name"
+                               id ="first_Name"/>
+                        <label for="last_Name">Last Name</label>
+                        <input class="form-control"
+                               name="lastName"
+                               ng-model="model.user.lastName"
+                               placeholder="Last Name"
+                               id ="last_Name"/>
+                        <label for="number">Contact Number</label>
+                        <input class="form-control"
+                               name="number"
+                               ng-model="model.user.phone"
+                               placeholder="enter your contact number"
+                               id ="number"/>
+
+                        <a class="btn btn-primary btn-block btn-default"
+                           ng-click="model.updateUser(model.user)"
+                           role="button">Update</a>
+                        <a class="btn btn-danger btn-block btn-default"
+                           ng-click="model.unregister(model.user)"
+                           role="button">Unregister</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8 col-xs-12 about-us centered-wrapper">
+                <div class="panel panel-default">
+                    <div class="panel-heading centered-wrapper">
+                        <h4>Account details</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading centered-wrapper">
+                                    <h5 ng-if="model.user.roles ==='End User'">Following</h5>
+                                    <h5 ng-if="model.user.roles ==='Event Organizer'">Followers</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <p ng-show="model.user.roles ==='End User'">You are following these people</p>
+                                    <p ng-show="model.user.roles ==='Event Organizer'">You are followed by xyz users</p>
+                                    <a class="btn btn-default btn-primary"
+                                       ng-if="model.user.roles ==='End User'"
+                                       ng-href="#!/{{model.uid}}/users/following">View</a>
+                                    <a class="btn btn-default btn-primary"
+                                       ng-if="model.user.roles ==='Event Organizer'"
+                                       ng-href="#!/{{model.uid}}/users/followers">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="model.user.roles ==='End User'" class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading centered-wrapper">
+                                    <h5>All Events</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <p>List of all Events by all Event Organizers</p>
+                                    <a ng-href="#!/user/events"
+                                       class="btn btn-default btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading centered-wrapper">
+                                    <h5 ng-if="model.user.roles ==='End User'">Events Going</h5>
+                                    <h5 ng-if="model.user.roles ==='Event Organizer'">Created Events</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <p ng-if="model.user.roles ==='End User'">You are going to these events</p>
+                                    <p ng-if="model.user.roles ==='Event Organizer'">You have created xyz events</p>
+                                    <a ng-if="model.user.roles ==='End User'"
+                                       ng-href="#!/user/{{model.user._id}}/event"
+                                       class="btn btn-default btn-primary">
+                                        View
+                                    </a>
+                                    <a ng-if="model.user.roles ==='Event Organizer'"
+                                       ng-href="#!/user/{{model.user._id}}/event"
+                                       class="btn btn-default btn-primary">
+                                        View
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading centered-wrapper">
+                                    <h5>Stories</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <p ng-if="model.user.roles ==='End User'">You have written these stories</p>
+                                    <p ng-if="model.user.roles ==='Event Organizer'">Your events have these stories</p>
+                                    <p></p>
+                                    <a class="btn btn-default btn-primary">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a ng-href="#!/profile/{{model.uid}}">
+                    <span class="glyphicon glyphicon-user am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text">
+                <amit class="am-gly">Developed by Amit Mangotra © 2017</amit>
+            </div>
+        </div>
+    </nav>
 </div>

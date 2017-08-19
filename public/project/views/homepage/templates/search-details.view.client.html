@@ -1,0 +1,52 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ng-href="#!/">Experience it-Share it</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav nav-pills navbar-right">
+                    <li><div class="navbar-text"><a class="am-gly" href="#">Home</a></div></li>
+                    <li><div class="navbar-text"><a class="am-gly" href="#">Share Story</a></div></li>
+                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/register">Create Event</a></div></li>
+                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/login">Login</a></div></li>
+                </ul>
+            </div>
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly" href="#!/login">Login</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Create Event</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Share Story</a>-->
+            <!--</div>-->
+            <!--<div class="navbar-text hidden-xs pull-right">-->
+            <!--<a class="am-gly">Home</a>-->
+            <!--</div>-->
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h2 class="am-gly centered-wrapper">Event Details</h2>
+        <div class="panel panel-default col-xs-12">
+            <div class="panel-heading">
+                <h4>{{model.event.name}}</h4>
+                {{model.event.venue.name}}<br>{{model.event.address_1}}<br>{{model.event.venue.city}},
+                <x>{{model.event.venue.country}}</x>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <p>{{model.event.description}}</p>
+                </div>
+                <a class="btn btn-success btn-default btn-block rsvp"
+                   role="button">Going</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,12 +6,32 @@ h1, input {
     margin-bottom: 15px;
 }
 
+.home-search {
+    margin-bottom: 10px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.am-event-title {
+    padding-top: 250px;
+}
+
+.am-event-title-xs {
+    padding-top: 100px;
+}
+
 body {
     background: #00bf8f;
     background: -webkit-linear-gradient(to right, #001510, #00bf8f);
     background: linear-gradient(to right, #001510, #00bf8f);
     padding-top: 80px;
     overflow-x: hidden;
+}
+
+.profile {
+    padding: -10px;
 }
 
 a.hover {
@@ -28,9 +48,21 @@ a.hover {
     color: white;
 }
 
-.navbar-brand {
-    font-family: Papyrus;
-    font-style: normal;
+label {
+    position: relative;
+    float: left;
+}
+/*.navbar-brand {*/
+    /*font-family: Papyrus;*/
+    /*font-style: normal;*/
+/*}*/
+
+#left-input {
+    margin-left: 10px;
+}
+
+#right-input {
+    margin-right: 10px;
 }
 
 .centered-wrapper {
@@ -50,5 +82,93 @@ a.hover {
     display: inline-block;
     width: 50%;
     vertical-align: middle;
+}
+
+.am-gly {
+    color: white;
+    align-content: center;
+}
+
+.hamburger {
+    padding-right: 10px;
+}
+
+.homepage-image {
+    position: relative;
+    top: -30px;
+}
+
+.homepage-image img {
+    position:absolute;
+    left:0;
+    top:0;
+    padding-bottom: 20px;
+}
+
+/*.content-contained{*/
+    /*padding-top: 600px;*/
+    /*padding-left: 100px;*/
+    /*padding-right: 100px;*/
+/*}*/
+
+.searchBox {
+    padding-top: 100px;
+    padding-left: 80px;
+    padding-right: 80px;
+    z-index: 2;
+}
+
+.searchBox-xs {
+    padding-top: -30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.am-events-display {
+    padding: 20px;
+}
+
+.panel-padding {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.rsvp {
+    margin-top: 10px;
+    position: relative;
+    float: left;
+}
+
+.wishlist {
+    margin-top: 10px;
+    z-index: 2;
+    position: relative;
+    float: right;
+}
+
+.black-button {
+    background-color: black;
+    border-color: black;
+}
+
+x {
+    text-transform: uppercase;
+}
+
+.about-us {
+    padding-bottom: 100px;
+}
+
+.wishlist {
+    padding-top: 30px;
+}
+
+.right {
+    float: right;
+    padding-bottom: 10px;
+}
+
+textarea {
+    margin-bottom: 10px;
 }
 

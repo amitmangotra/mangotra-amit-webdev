@@ -1,0 +1,30 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-text pull-left"
+                   ng-href="#!/profile"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand">Experience it-Share it</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h3 class="centered-wrapper am-gly">Events</h3>
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <div ng-repeat="event in model.events">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            {{event.title}}
+                        </div>
+                        <div class="panel-body">
+                            {{event.address}}<br>{{event.description}}
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>

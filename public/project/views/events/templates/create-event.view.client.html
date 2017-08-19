@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div>
+            <a class="navbar-text pull-left"
+               ng-href="#!/profile"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand">Experience it-Share it</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid centered-wrapper">
+    <div class="centered-content">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading centered-wrapper">
+                <h4>Event details</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-12">
+                    <label for="title">Event Title</label>
+                    <input class="form-control"
+                           name="title"
+                           ng-model="model.event.title"
+                           id ="title"/>
+                    <label for="address">Address</label>
+                    <input class="form-control"
+                           name="address"
+                           ng-model="model.event.address"
+                           id ="address"/>
+                    <label for="date">Event Date</label>
+                    <input class="form-control"
+                           type="date"
+                           name="date"
+                           ng-model="model.event.date"
+                           id ="date"/>
+                    <label for="description">Event Description</label>
+                    <textarea class="form-control"
+                              name="description"
+                              rows="6"
+                              ng-model="model.event.description"
+                              id ="description"></textarea>
+                    <a class="btn btn-success btn-default btn-block"
+                       ng-click="model.publishEvent(model.event)">Publish Event</a>
+                    <a ng-href="#!/profile" class="btn btn-danger btn-default btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

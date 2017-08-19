@@ -1,14 +1,21 @@
-<div>
+ <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <div>
+                <a class="navbar-text pull-left"
+                   href="#!/"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+            </div>
             <div class="navbar-header">
-                <a class="navbar-brand">Experience the Nearby Happenings</a>
+                <a class="navbar-brand">Experience it-Share it</a>
             </div>
         </div>
     </nav>
     <div class="container-fluid centered-wrapper">
         <div class="centered-content">
             <h1>Login</h1>
+            <div ng-show="model.errorMessage" class="alert alert-danger">
+                {{model.errorMessage}}
+            </div>
             <input class="form-control"
                    name="username"
                    ng-model="model.user.username"
@@ -22,11 +29,32 @@
                    type = "password"/>
 
             <a class="btn btn-primary btn-block btn-default"
-               href="profile.view.client.html"
+               ng-click="model.login(model.user)"
                role="button">Login</a>
             <a class="btn btn-danger btn-block btn-default"
-               href="#!/register"
+               ng-href="#!/register"
                role="button">Sign Up</a>
+            <div class="am-gly"><h2>OR</h2></div>
+            <a href="/experience/auth/google" class="btn btn-danger btn-block">
+                <span class="fa fa-google-plus"></span>
+                Google
+            </a>
+            <a class="btn btn-primary btn-block">
+                <span class="fa fa-facebook"></span>
+                Facebook
+            </a>
         </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a ng-href="#!/">
+                    <span class="glyphicon glyphicon-home am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text">
+                <amit class="am-gly">Developed by Amit Mangotra © 2017</amit>
+            </div>
+        </div>
+    </nav>
 </div>

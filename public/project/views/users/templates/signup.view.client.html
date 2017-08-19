@@ -1,8 +1,12 @@
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <div>
+                <a class="navbar-text pull-left"
+                   href="#!/"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+            </div>
             <div class="navbar-header">
-                <a class="navbar-brand">Experience the Nearby Happenings</a>
+                <a class="navbar-brand">Experience it-Share it</a>
             </div>
         </div>
     </nav>
@@ -29,13 +33,34 @@
                    placeholder="verify password"
                    id ="password1"
                    type = "password"/>
+            <label for="role" class="am-gly">Select Role</label>
+            <select name="role"
+                    ng-model="user.roles"
+                    class="form-control form-group"
+                    id="role">
+                <option value="Event Organizer">Event Organizer</option>
+                <option value="End User">End User</option>
+            </select>
+
 
             <a class="btn btn-primary btn-block btn-default"
                ng-click="model.registerUser(user)"
                role="button">Register</a>
             <a class="btn btn-danger btn-block btn-default"
-               href="#!/login"
+               href="#!/"
                role="button">Cancel</a>
         </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a ng-href="#!/">
+                    <span class="glyphicon glyphicon-home am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text">
+                <amit class="am-gly">Developed by Amit Mangotra © 2017</amit>
+            </div>
+        </div>
+    </nav>
 </div>

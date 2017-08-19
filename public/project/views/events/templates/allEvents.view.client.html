@@ -1,0 +1,25 @@
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-href="#!/">ExperienceIt-ShareIt</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h2 class="am-gly centered-wrapper">Events</h2>
+        <div ng-repeat="event in model.events" class="panel panel-default col-xs-12">
+            <div class="panel-heading">
+                <h4>{{event.name}}</h4>
+                {{event.address}}
+            </div>
+            <div class="panel-body">
+                <div>
+                    <p>{{model.event.description}}</p>
+                </div>
+                <a class="btn btn-success btn-default btn-block rsvp"
+                   role="button">Going</a>
+            </div>
+        </div>
+    </div>
+</div>

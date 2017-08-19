@@ -6,7 +6,7 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("loginController", loginController);
 
-    function loginController($location) {//, UserService) {
+    function loginController($location, UserService) {
         var model = this;
 
         model.login = login;
@@ -17,8 +17,8 @@
         init();
 
         function login(user)  {
-            if(!user) {
-                model.errorMessage = "Please enter login details";
+            if(!user.username || !user.password) {
+                model.errorMessage = "Enter complete login details";
                 return;
             }
             UserService
@@ -28,7 +28,7 @@
                     if(_user === null) {
                         model.errorMessage = "Invalid username and password";
                     } else {
-                        $location.url("profile/"+_user._id);
+                        $location.url("/profile");
                     }
                 });
         }

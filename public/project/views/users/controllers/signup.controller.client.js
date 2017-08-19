@@ -3,7 +3,7 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("signupController", signupController);
 
-    function signupController($location, UserService) {
+    function signupController($location, UserService, $rootScope) {
         var model = this;
 
         model.registerUser = registerUser;
@@ -19,11 +19,12 @@
                 .then(function (response) {
                     var _user = response.data;
                     if(!_user) {
-                        if (user.password === user.verify_password && user.password && user.verify_password) {
+                        if (user.password === user.verify_password && user.password && user.verify_password && user.roles) {
                             UserService.createUser(user)
                                 .then(function (response) {
                                     _user = response.data;
-                                    $location.url("/profile/" + _user._id);
+                                    $rootScope.currentUser = _user;
+                                    $location.url("/profile");
                                 })
 
                         } else {
