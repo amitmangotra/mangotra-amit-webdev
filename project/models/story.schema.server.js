@@ -6,5 +6,5 @@ var storySchema = mongoose.Schema({
     writer: {type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
     event: {type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}
     // stories: [{type: mongoose.Schema.Types.ObjectId, ref:"StoryModel"}]
-}, {collection: "story"});
+}, {collection: "storyproject"});
 module.exports = storySchema;

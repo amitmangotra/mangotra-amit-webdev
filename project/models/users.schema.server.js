@@ -13,5 +13,5 @@ var userSchema = mongoose.Schema({
     // _wishlist: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}],
     rsvp_events: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}],
     events: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}]
-}, {collection: "user-project"});
+}, {collection: "userproject"});
 module.exports = userSchema;
