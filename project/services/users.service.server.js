@@ -18,14 +18,15 @@ app.get("/api/:uid/users", getAllUsers);
 app.get("/api/followers/user/:userId", getFollowersList);
 app.get("/api/following/user/:userId", getFollowingList);
 app.post("/api/user", createUser);
+app.post("/api/register", register);
 app.post("/api/delete/follower/user/:userId", removeFromFollowersList);
 app.post("/api/delete/following/user/:userId", removeFromFollowingList);
 app.put("/api/user/:userId", updateUser);
 app.put("/api/follow/user/:userId", followOrganizer);
 app.put("/api/unfollow/user/:userId", unfollowOrganizer);
 app.delete("/api/user/:userId", deleteUser);
-app.get('/api/user/:uid/events', findEventsByUser);
-app.get('/api/checkLogin', checkLogin);
+app.get("/api/user/:uid/events", findEventsByUser);
+app.get("/api/checkLogin", checkLogin);
 // app.get('/experience/auth/google', abcd);
 
 
@@ -54,6 +55,25 @@ function login(req, res) {
     var user = req.user;
     res.json(user);
 
+}
+
+function register (req, res) {
+    var user = req.body;
+    userModel
+        .createUser(user)
+        .then(
+            function(user){
+                if(user){
+                    req.login(user, function(err) {
+                        if(err) {
+                            res.status(400).send(err);
+                        } else {
+                            // console.log(user);
+                            res.json(user);
+                        }
+                    });
+                }
+            });
 }
 
 function updateUser(req, res) {
@@ -99,8 +119,8 @@ function getUserById(req, res) {
 }
 
 function findUser(req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
+    var username = req.query.username;
+    var password = req.query.password;
 
     if(username && password) {
         userModel

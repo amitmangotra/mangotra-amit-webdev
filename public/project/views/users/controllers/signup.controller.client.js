@@ -18,15 +18,25 @@
                 .findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
-                    if(!_user) {
+                    if(_user === null) {
                         if (user.password === user.verify_password && user.password && user.verify_password && user.roles) {
-                            UserService.createUser(user)
+                            UserService
+                                .register(user);
+                                // .then(
+                                //     function (response) {
+                                //     $rootScope.currentUser = response.data;
+                                //     $location.url("/profile");
+                                // });
+                            UserService.findUserByUsername(user.username)
                                 .then(function (response) {
-                                    _user = response.data;
-                                    $rootScope.currentUser = _user;
-                                    $location.url("/profile");
-                                })
-
+                                    var user = response.data;
+                                    UserService
+                                        .findUserByCredentials(user.username, user.password)
+                                        .then(function (response) {
+                                            var _user = response.data;
+                                            $location.url("/profile");
+                                        });
+                                });
                         } else {
                             model.errorMessage = "Password doesn't match or some field missing";
                         }

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="centered-wrapper innerSearch">
+        <div>
+            <div class="input-group">
+                <input ng-model="term" type="text" class="form-control" placeholder="Search term for events">
+                <span class="input-group-btn">
+                        <button ng-click="model.search(term)"
+                                class="btn btn-default"
+                                type="button">
+                            <span class="fa fa-search"></span>
+                        </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div ng-show="model.searchresults" class="centered-wrapper">
+            <h2 class="am-gly am-event-title-xs">Events for you</h2>
+        </div>
+        <div class="row">
+            <div ng-repeat="result in model.results" class="am-events-display">
+                <div class="panel panel-default col-xs-12">
+                    <div class="panel-heading">
+                        <h4><a ng-href="#!/{{result.group.urlname}}/events/{{result.id}}">{{result.name}}</a></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <p>{{result.venue.name}}<br>{{result.venue.address_1}}<br>{{result.venue.city}}, <x>{{result.venue.country}}</x>
+                            </p>
+                        </div>
+                        <a class="btn btn-success btn-default btn-block rsvp"
+                           role="button">Going</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

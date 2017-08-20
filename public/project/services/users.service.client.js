@@ -22,7 +22,8 @@
            "removeFromFollowersList": removeFromFollowersList,
            "removeFromFollowingList": removeFromFollowingList,
            "findEventsByUser": findEventsByUser,
-           "checkLogin": checkLogin
+           "checkLogin": checkLogin,
+           "register": register
         };
 
         return api;
@@ -32,6 +33,11 @@
                 .then(function (response) {
                     return response.data;
                 })
+        }
+
+        function register(user) {
+            var url = "/api/register";
+            $http.post(url, user);
         }
 
         function createUser(user) {

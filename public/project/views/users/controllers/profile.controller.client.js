@@ -4,7 +4,6 @@
         .controller("profileController", profileController);
 
     function profileController($routeParams, $location, UserService, user) {
-        console.log(user);
         var model = this;
 
         model.uid = user._id;
