@@ -118,10 +118,10 @@
                                     <p ng-show="model.user.roles ==='Event Organizer'">You are followed by xyz users</p>
                                     <a class="btn btn-default btn-primary"
                                        ng-if="model.user.roles ==='End User'"
-                                       ng-href="#!/{{model.uid}}/users/following">View</a>
+                                       ng-href="#!/users/following">View</a>
                                     <a class="btn btn-default btn-primary"
                                        ng-if="model.user.roles ==='Event Organizer'"
-                                       ng-href="#!/{{model.uid}}/users/followers">View</a>
+                                       ng-href="#!/users/followers">View</a>
                                 </div>
                             </div>
                         </div>
@@ -147,12 +147,12 @@
                                     <p ng-if="model.user.roles ==='End User'">You are going to these events</p>
                                     <p ng-if="model.user.roles ==='Event Organizer'">You have created xyz events</p>
                                     <a ng-if="model.user.roles ==='End User'"
-                                       ng-href="#!/user/{{model.user._id}}/event"
+                                       ng-href="#!/event"
                                        class="btn btn-default btn-primary">
                                         View
                                     </a>
                                     <a ng-if="model.user.roles ==='Event Organizer'"
-                                       ng-href="#!/user/{{model.user._id}}/event"
+                                       ng-href="#!/event"
                                        class="btn btn-default btn-primary">
                                         View
                                     </a>
@@ -180,12 +180,12 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="visible-xs navbar-text pull-right">
-                <a ng-href="#!/profile/{{model.uid}}">
+                <a ng-href="#!/profile">
                     <span class="glyphicon glyphicon-off am-gly"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right hidden-xs">
-                <a ng-href="#!/profile/{{model.uid}}">
+                <a ng-href="#!/profile">
                     <span class="glyphicon glyphicon-user am-gly"></span>
                 </a>
             </div>
