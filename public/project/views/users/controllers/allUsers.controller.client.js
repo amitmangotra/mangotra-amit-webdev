@@ -11,6 +11,8 @@
         model.follow = follow;
         model.unfollow = unfollow;
         model.followingAlready = followingAlready;
+        model.showDetails = showDetails;
+
 
         function init() {
             UserService
@@ -20,6 +22,15 @@
                 });
         }
         init();
+
+
+        function showDetails(userId) {
+            UserService
+                .findUserById(userId)
+                .then(function (response) {
+                    model.user = response.data;
+                });
+        }
 
         function followingAlready(user) {
             var res = false;

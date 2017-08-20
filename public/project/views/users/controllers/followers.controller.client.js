@@ -8,6 +8,8 @@
 
         model.uid = user._id;
 
+        model.followerDetails = followerDetails;
+
         function init() {
             UserService
                 .getFollowersList(model.uid)
@@ -16,6 +18,14 @@
                 });
         }
         init();
+
+        function followerDetails(userId) {
+            UserService
+                .findUserById(userId)
+                .then(function (response) {
+                    model.follower = response.data;
+                });
+        }
 
     }
 })();
