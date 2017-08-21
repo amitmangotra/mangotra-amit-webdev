@@ -5,10 +5,10 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
 
-    <title>Landing Page</title>
+    <title>Course Landing Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,10 +37,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#about">About Me</a>
+            <a class="nav-link" href="#aboutMe">About Me</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#services">Work</a>
+            <a class="nav-link" href="#work">Work</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
@@ -56,25 +56,30 @@
           <hr>
           <p>Hello World !!</p>
             <p>This is a landing page for our course on Web Development (CS-5610). It has links to my assignments, github repositories, project and other social networks</p>
-          <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+          <a class="btn btn-primary btn-xl" href="#aboutMe">Find Out More</a>
         </div>
       </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="aboutMe">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">A little about myself</h2>
-            <hr class="light">
-            <p class="text-faded">I am a candidate for Master's in Computer Science at Northeastern university, Boston. Working for the good of humanity is what I believe in and studying Computer Science is what gonna prepare me for the same. I like solving coding problems and I love to listen to music and play guitar.</p>
-            <a class="btn btn-default btn-xl sr-button" href="#services">Go Ahead</a>
+          <div class="col-lg-8">
+            <div class="col-lg-8 mx-auto text-center">
+              <h2 class="section-heading text-white">A little about myself</h2>
+              <hr class="light">
+              <p class="text-faded">I am a candidate for Master's in Computer Science at Northeastern university, Boston. Working for the good of humanity is what I believe in and studying Computer Science is what gonna prepare me for the same. I like solving coding problems and I love to listen to music and play guitar.</p>
+            </div>
           </div>
+          <div class="col-lg-4">
+            <img class="myImg" src="img/Picture.jpg">
+          </div>
+          <a class="btn btn-default btn-xl sr-button mx-auto text-center" href="#work">Go Ahead</a>
         </div>
       </div>
     </section>
 
-    <section id="services">
+    <section id="work">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -87,31 +92,39 @@
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box">
-              <i class="fa fa-4x fa-code text-primary sr-icons"></i>
+              <a href="https://mangotra-amit-webdev.herokuapp.com/assignment/#!/">
+                <i class="fa fa-4x fa-code text-primary sr-icons"></i>
+              </a>
               <h3>Assignment</h3>
               <p class="text-muted">For our web development course assignments, we developed a simple Web Maker App which built web templates.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box">
-              <i class="fa fa-4x fa-meetup text-primary sr-icons"></i>
+              <a href="https://mangotra-amit-webdev.herokuapp.com/project/index.html#!/">
+                <i class="fa fa-4x fa-meetup text-primary sr-icons"></i>
+              </a>
               <h3>Project</h3>
               <p class="text-muted">ExperienceIt-ShareIt is a web app which lets users to attend events which they feel interested in.Event Organizers can organize and publish their own events.Users can share stories about their experiences.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box">
-              <i class="fa fa-4x fa-github text-primary sr-icons"></i>
+              <a href="https://github.com/amitmangotra/">
+                <i class="fa fa-4x fa-github text-primary sr-icons"></i>
+              </a>
               <h3>Github Repo</h3>
               <p class="text-muted">This is my github repository.It has the code base for my assignments and project.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box">
-              <i class="fa fa-4x fa-linkedin-square text-primary sr-icons"></i>
-              <h3>LinkedIn</h3>
-              <p class="text-muted">This is link to my LinkedIn Profile.Make connections to grow mutual network!</p>
-            </div>
+              <div class="service-box">
+                <a href="https://www.linkedin.com/in/amit-mangotra-189894b6">
+                  <i class="fa fa-4x fa-linkedin-square text-primary sr-icons"></i>
+                </a>
+                <h3>LinkedIn</h3>
+                <p class="text-muted">This is link to my LinkedIn Profile.Make connections to grow mutual network!</p>
+              </div>
           </div>
         </div>
       </div>
