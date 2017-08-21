@@ -4,15 +4,15 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var googleConfig = {
-    clientID     : process.env.GOOGLE_CLIENT_ID || '478222848756-en9qjjjrf6tsn16u8fgsmufgqihp774s.apps.googleusercontent.com',
-    clientSecret : process.env.GOOGLE_CLIENT_SECRET || 'tSBP_jLiOXB8uXwjJl-i4bmx',
-    callbackURL  : process.env.GOOGLE_CALLBACK_URL || 'http://127.0.0.1:3000/auth/google/callback'
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
 };
 var FacebookStrategy = require('passport-facebook').Strategy;
 var facebookConfig = {
-    clientID     : process.env.FACEBOOK_CLIENT_ID || '1957586544524408',
-    clientSecret : process.env.FACEBOOK_CLIENT_SECRET || 'f5ab7c159310b8881aed0b1736606f44',
-    callbackURL  : process.env.FACEBOOK_CALLBACK_URL || 'http://127.0.0.1:3000/auth/facebook/callback'
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
 };
 var bcrypt = require("bcrypt-nodejs");
 

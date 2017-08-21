@@ -21,15 +21,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>{{model.event.name}}</h4>
-                    {{model.event.venue.name}}<br>{{model.event.address_1}}<br>{{model.event.venue.city}},
-                    <x>{{model.event.venue.country}}</x>
+
                 </div>
                 <div class="panel-body">
                     <div>
+                        {{model.event.venue.name}}<br>{{model.event.address_1}}{{model.event.venue.city}},<x>{{model.event.venue.country}}</x>
+                    </div>
+                    <div>
                         <p>{{model.event.description}}</p>
                     </div>
-                    <a class="btn btn-success btn-default btn-block rsvp"
-                       role="button">Going</a>
                 </div>
             </div>
         </div>
