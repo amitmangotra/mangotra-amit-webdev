@@ -6,25 +6,42 @@
                    ng-href="#!/profile"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand">Experience it-Share it</a>
+                <a class="navbar-brand">ExperienceIt-ShareIt</a>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-        <h3 class="centered-wrapper am-gly">Events</h3>
+        <h3 ng-show="model.events" class="centered-wrapper am-gly">Events</h3>
         <div class="col-xs-12">
             <ul class="list-group">
                 <div ng-repeat="event in model.events">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            {{event.title}}
-                        </div>
-                        <div class="panel-body">
-                            {{event.address}}<br>{{event.description}}
+                    <div ng-if="!model.eventsAlreadyRsvp(model.uid, event._id)">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>{{event.title}}</h4>
+                            </div>
+                            <div class="panel-body">
+                                <b>{{event.address}}</b><br>{{event.description}}<br><br>
+                                Event date - {{event.date | date: 'fullDate'}}<br><br>
+                                <a class="centered-wrapper btn btn-default btn-danger rsvp"
+                                   ng-click="model.removeEvent(event)">Remove Event</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </ul>
         </div>
     </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right">
+                <a ng-href="#!/">
+                    <span class="glyphicon glyphicon-home am-gly"></span>
+                </a>
+            </div>
+            <div class="navbar-text">
+                <amit class="am-gly">Developed by Amit Mangotra © 2017</amit>
+            </div>
+        </div>
+    </nav>
 </div>

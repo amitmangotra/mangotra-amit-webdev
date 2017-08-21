@@ -1,7 +1,9 @@
 var app = require('../../express');
 var storyModel = require("../models/story.model.server");
 
-app.post('/api/user/:uid/story/new', createStory);
+app.post('/api/project/user/:uid/story/new', createStory);
+app.get('/api/project/user/:uid/story', findStoriesByUser);
+app.delete('/api/project/story/:storyId', removeStory);
 // app.get('/api/user/:uid/events', findEventsByUser);
 // app.get('/api/user/events', allEvents);
 
@@ -16,6 +18,28 @@ function createStory(req, res) {
         }, function (err) {
             res.statusCode(500).send(err);
             return;
+        });
+}
+
+function findStoriesByUser(req, res) {
+    var userId = req.params.uid;
+    return storyModel
+        .findStoriesByUser(userId)
+        .then(function (stories) {
+            res.json(stories);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        });
+}
+
+function removeStory(req, res) {
+    var storyId = req.params.storyId;
+    return storyModel
+        .removeStory(storyId)
+        .then(function (status) {
+            res.sendStatus(200);
         });
 }
 

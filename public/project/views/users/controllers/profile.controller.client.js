@@ -3,13 +3,14 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, $location, UserService, user) {
+    function profileController($rootScope, $location, UserService, user) {
         var model = this;
 
         model.uid = user._id;
 
         model.updateUser = updateUser;
         model.unregister = unregister;
+        model.logout = logout;
 
         function init() {
             UserService
@@ -35,6 +36,17 @@
                     $location.url("/");
                 })
 
+        }
+
+        function logout() {
+            UserService
+                .logout()
+                .then(
+                    function (response) {
+                        $rootScope.queryTerm = null;
+                        $rootScope.zipcode = null;
+                        $location.url("/");
+                    });
         }
     }
 })();

@@ -1,40 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=0">
+    <!--<meta name="description" content="">-->
+    <!--<meta name="author" content="">-->
+
+    <title>Course Landing Page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="courseHomePage/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+    <!-- Custom fonts for this template -->
+    <!--<link href="courseHomePage/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="courseHomePage/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="courseHomePage/css/creative.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <h1>Web Dev Course Home Page</h1>
 
-    <p>
-        This is your website's home page. Your home page should have a picture of yourself, link to your assignments,
-        link to your final project implementation on Heroku, link to your GitHub,
-        link to a 5 minute video demoing your project. Your home page should look
-        spectacular. You should feel proud to share your homepage with your potential employer.
-        I should feel proud to share your homepage with my colleagues.
-    </p>
+<body id="page-top">
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="poc/index.html">Proof Of Concept</a>
-        </li>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/amitmangotra/mangotra-amit-webdev">Your public repository at GitHub.com</a>
-        </li>
-        <li>
-            <a href="/lectures">Lectures</a>
-        </li>
-    </ul>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="#page-top">HOME</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#aboutMe">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#work">Work</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<header class="masthead">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">Amit Mangotra</h1>
+            <hr>
+            <p>Hello World !!</p>
+            <p>This is a landing page for our course on Web Development (CS-5610). It has links to my assignments, github repositories, project and other social networks</p>
+            <a class="btn btn-primary btn-xl" href="#aboutMe">Find Out More</a>
+        </div>
+    </div>
+</header>
+
+<section class="bg-primary" id="aboutMe">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-heading text-white">A little about myself</h2>
+                    <hr class="light">
+                    <p class="text-faded">I am a candidate for Master's in Computer Science at Northeastern university, Boston. Working for the good of humanity is what I believe in and studying Computer Science is what gonna prepare me for the same. I like solving coding problems and I love to listen to music and play guitar.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <img class="myImg" src="img/Picture.jpg">
+            </div>
+            <a class="btn btn-default btn-xl sr-button mx-auto text-center goahead" href="#work">Go Ahead</a>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">WORK SHOWCASE</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="assignment/" target="_blank">
+                        <i class="fa fa-4x fa-code text-primary sr-icons"></i>
+                    </a>
+                    <h3>Assignment</h3>
+                    <p class="text-muted">For our web development course assignments, we developed a simple Web Maker App which built web templates.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="project/index.html" target="_blank">
+                        <i class="fa fa-4x fa-window-maximize text-primary sr-icons"></i>
+                    </a>
+                    <h3>Project</h3>
+                    <p class="text-muted">ExperienceIt-ShareIt is a web app which lets users to attend events which they feel interested in.Event Organizers can organize and publish their own events.Users can share stories about their experiences.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="https://github.com/amitmangotra/" target="_blank">
+                        <i class="fa fa-4x fa-github text-primary sr-icons"></i>
+                    </a>
+                    <h3>Github Repo</h3>
+                    <p class="text-muted">This is my github repository.It has the code base for my assignments and project.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <a href="https://www.meetup.com/meetup_api/" >
+                        <i class="fa fa-4x fa-meetup text-primary sr-icons"></i>
+                    </a>
+                    <h3>API Documentation</h3>
+                    <p class="text-muted">This is link to documentation of the API I have used.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">Let's Stay In Touch!</h2>
+                <hr class="primary">
+                <p>Being socially active improves professionalism, so write to me or call any time to keep the connections intact.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center">
+                <i class="fa fa-phone fa-3x sr-contact"></i>
+                <p>+1-(916)-886-9297</p>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                <p>
+                    <a href="mailto:your-email@your-domain.com">mangotra.a@husky.neu.edu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap core JavaScript -->
+<script src="courseHomePage/vendor/jquery/jquery.min.js"></script>
+<script src="courseHomePage/vendor/popper/popper.min.js"></script>
+<script src="courseHomePage/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="courseHomePage/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="courseHomePage/vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="courseHomePage/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="courseHomePage/js/creative.min.js"></script>
+
 </body>
+
 </html>

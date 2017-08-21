@@ -3,9 +3,10 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("searchController", searchController);
 
-    function searchController(HomePageService, $routeParams) {
+    function searchController(HomePageService, user, $routeParams) {
         var model = this;
 
+        model.uid = user._id;
         model.search = search;
 
         function init() {

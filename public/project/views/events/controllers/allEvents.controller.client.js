@@ -3,10 +3,11 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("allEventsController", allEventsController);
 
-    function allEventsController(UserService, $routeParams, user) {
+    function allEventsController(UserService, EventService, user, $route) {
         var model = this;
 
         model.uid = user._id;
+        model.removeEvent = removeEvent;
 
         function init() {
             UserService
@@ -21,5 +22,14 @@
                 });
         }
         init();
+
+        function removeEvent(event) {
+            EventService
+                .removeEvent(model.uid, event._id)
+                .then(function (response) {
+                    $route.reload();
+                });
+        }
+
     }
 })();

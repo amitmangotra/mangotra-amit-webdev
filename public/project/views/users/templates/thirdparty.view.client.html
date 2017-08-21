@@ -1,0 +1,100 @@
+<div class="container-fluid visible-xs">
+    <div class="panel panel-default centered-wrapper">
+        <div class="panel-heading centered-wrapper"><h4>Fill in your details</h4></div>
+        <div class="panel-body">
+            <label for="username">Username</label>
+            <input class="form-control"
+                   readonly
+                   name="username"
+                   ng-model="model.user.username"
+                   id ="username"/>
+            <label for="email">Email</label>
+            <input class="form-control"
+                   name="email"
+                   ng-model="model.user.email"
+                   placeholder="example@domain.com"
+                   id ="email"
+                   type = "email"/>
+            <label for="first_Name">First Name</label>
+            <input class="form-control"
+                   name="firstName"
+                   ng-model="model.user.firstName"
+                   placeholder="First Name"
+                   id ="first_Name"/>
+            <label for="last_Name">Last Name</label>
+            <input class="form-control"
+                   name="lastName"
+                   ng-model="model.user.lastName"
+                   placeholder="Last Name"
+                   id ="last_Name"/>
+            <label for="number">Contact Number</label>
+            <input class="form-control"
+                   name="number"
+                   ng-model="model.user.phone"
+                   placeholder="enter your contact number"
+                   id ="number"/>
+            <label for="role">Select Role</label>
+            <select name="role"
+                    ng-model="model.user.roles"
+                    class="form-control form-group"
+                    id="role">
+                <option value="Event Organizer">Event Organizer</option>
+                <option value="End User">End User</option>
+            </select>
+            <a class="btn btn-primary btn-block btn-default"
+               ng-click="model.updateUser(model.user)"
+               role="button">Save Changes</a>
+        </div>
+    </div>
+</div>
+<div class="hidden-xs container-fluid centered-wrapper">
+    <div class="centered-content">
+        <div class="panel panel-default centered-wrapper">
+            <div class="panel-heading centered-wrapper"><h4>Fill in your details</h4></div>
+            <div class="panel-body">
+                <label for="username">Username</label>
+                <input class="form-control"
+                       readonly
+                       name="username"
+                       ng-model="model.user.username"
+                       id ="username1"/>
+                <label for="email">Email</label>
+                <input class="form-control"
+                       name="email"
+                       ng-model="model.user.email"
+                       placeholder="example@domain.com"
+                       id ="email1"
+                       type = "email"/>
+                <label for="first_Name">First Name</label>
+                <input class="form-control"
+                       name="firstName"
+                       ng-model="model.user.firstName"
+                       placeholder="First Name"
+                       id ="first_Name1"/>
+                <label for="last_Name">Last Name</label>
+                <input class="form-control"
+                       name="lastName"
+                       ng-model="model.user.lastName"
+                       placeholder="Last Name"
+                       id ="last_Name1"/>
+                <label for="number">Contact Number</label>
+                <input class="form-control"
+                       name="number"
+                       ng-model="model.user.phone"
+                       placeholder="enter your contact number"
+                       id ="number1"/>
+                <label for="role">Select Role</label>
+                <select name="role"
+                        ng-model="model.user.roles"
+                        class="form-control form-group"
+                        id="role1">
+                    <option value="Event Organizer">Event Organizer</option>
+                    <option value="End User">End User</option>
+                </select>
+                <a class="btn btn-primary btn-block btn-default"
+                   ng-click="model.updateUser(model.user)"
+                   role="button">Save Changes</a>
+            </div>
+        </div>
+    </div>
+</div>

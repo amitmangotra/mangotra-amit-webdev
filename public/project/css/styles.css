@@ -173,5 +173,13 @@ textarea {
 }
 
 .innerSearch {
-    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.panel-body  {
+    word-break:break-all
+}
+
+.results {
+    margin-bottom: 100px;
 }

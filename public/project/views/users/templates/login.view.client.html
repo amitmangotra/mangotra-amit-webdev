@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div>
                 <a class="navbar-text pull-left"
-                   ng-href="#!/"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
+                   ng-click="model.back()"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand">ExperienceIt-ShareIt</a>
@@ -35,11 +35,11 @@
                ng-href="#!/register"
                role="button">Sign Up</a>
             <div class="am-gly"><h2>OR</h2></div>
-            <a href="/experience/auth/google" class="btn btn-danger btn-block">
+            <a href="/auth/google" class="btn btn-danger btn-block">
                 <span class="fa fa-google-plus"></span>
                 Google
             </a>
-            <a class="btn btn-primary btn-block">
+            <a href="/auth/facebook" class="btn btn-primary btn-block">
                 <span class="fa fa-facebook"></span>
                 Facebook
             </a>

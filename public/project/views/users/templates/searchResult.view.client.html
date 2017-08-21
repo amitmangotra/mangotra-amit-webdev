@@ -1,31 +1,35 @@
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-text pull-left">
-                <a ng-href="#!/profile"><span class="glyphicon glyphicon-chevron-left am-gly"></span></a>
-            </div>
             <div class="navbar-header">
+                <div class="navbar-text pull-left">
+                    <a ng-href="#!/search"
+                       class="am-gly">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                </div>
                 <a class="navbar-brand">ExperienceIt-ShareIt</a>
+            </div>
+            <div class="navbar-text hidden-xs pull-right">
+                <a class="am-gly" ng-href="#!/">Logout</a>
             </div>
         </div>
     </nav>
     <div class="container-fluid">
-        <h2 class="am-gly centered-wrapper">Events</h2>
+        <h2 class="am-gly centered-wrapper">Event Details</h2>
         <div class="col-xs-12">
-            <div ng-repeat="event in model.events" class="panel panel-default">
+            <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>{{event.title}}</h4>
-                    {{event.address}}
+                    <h4>{{model.event.name}}</h4>
+                    {{model.event.venue.name}}<br>{{model.event.address_1}}<br>{{model.event.venue.city}},
+                    <x>{{model.event.venue.country}}</x>
                 </div>
                 <div class="panel-body">
                     <div>
-                        <p>{{event.description}}</p>
+                        <p>{{model.event.description}}</p>
                     </div>
-                    <button ng-hide="model.eventsAlreadyRsvp(event._id)"
-                       class="btn btn-success btn-default rsvp"
-                       ng-click="model.rsvpEvent(event)">Going</button>
-                    <a ng-show="model.eventsAlreadyRsvp(event._id)"
-                       class="rsvp">Already Going</a>
+                    <a class="btn btn-success btn-default btn-block rsvp"
+                       role="button">Going</a>
                 </div>
             </div>
         </div>

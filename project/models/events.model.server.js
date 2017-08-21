@@ -6,6 +6,7 @@ eventModel.createEvent = createEvent;
 eventModel.findEventsByUser = findEventsByUser;
 eventModel.allEvents = allEvents;
 eventModel.addStory = addStory;
+eventModel.removeEvent = removeEvent;
 
 module.exports = eventModel;
 
@@ -26,20 +27,35 @@ function createEvent(userId, event) {
 }
 
 function findEventsByUser(userId) {
-    return eventModel.find({organizer: userId});
+    return userModel.findUserById(userId)
+        .then(function (user) {
+            if(user.roles === 'End User') {
+                return eventModel.find({user_rsvps: user._id});
+            } else if(user.roles === 'End User') {
+                return eventModel.find({user_rsvps: user._id});
+            }
+        });
 }
 
 function allEvents() {
     return eventModel.find()
-        .populate('stories')
         .populate('user_rsvps')
         .populate('organizer')
         .exec();
 }
 
+function removeEvent(userId, eventId) {
+    return eventModel.remove({_id: eventId})
+        .then(function (response) {
+            return userModel.removeEvent(userId, eventId);
+        });
+}
+
 function addStory(eventId, storyId) {
-    return eventModel.findById(eventId)
+    return eventModel
+        .findById(eventId)
         .then(function (event) {
-            return event.stories.push(storyId);
+            event.stories.push(storyId);
+            return event.save();
         });
 }

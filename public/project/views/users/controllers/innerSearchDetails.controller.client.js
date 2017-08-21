@@ -1,16 +1,14 @@
 (function () {
     angular
         .module("ExperienceNearbyHappeningsApp")
-        .controller("detailsController", detailsController);
+        .controller("searchDetailsController", searchDetailsController);
 
-    function detailsController(HomePageService, $routeParams) {
+    function searchDetailsController(EventService, HomePageService, user, $routeParams) {
         var model = this;
 
-        // model.uid = user._id;
+        model.uid = user._id;
         model.eventId = $routeParams["eventId"];
         model.urlname = $routeParams["urlname"];
-
-        model.rsvpApiEvent = rsvpApiEvent;
 
         function init() {
             HomePageService
@@ -20,10 +18,6 @@
                 });
         }
         init();
-
-        function rsvpApiEvent(event) {
-            EventService
-        }
 
     }
 })();

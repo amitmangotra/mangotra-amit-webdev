@@ -1,35 +1,11 @@
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <div class="navbar-text pull-right"><a class="am-gly" ng-href="#!/login">Login</a></div>
+            <div class="navbar-text pull-right hidden-xs"><a class="am-gly" ng-href="#!/register">Sign Up</a></div>
             <div class="navbar-header">
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" ng-href="#!/">ExperienceIt-ShareIt</a>
+                <a class="navbar-brand">ExperienceIt-ShareIt</a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav nav-pills navbar-right">
-                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/">Home</a></div></li>
-                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/register">Share Story</a></div></li>
-                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/register">Create Event</a></div></li>
-                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/login">Login</a></div></li>
-                </ul>
-            </div>
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-                <!--<a class="am-gly" href="#!/login">Login</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-                <!--<a class="am-gly">Create Event</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-                <!--<a class="am-gly">Share Story</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-                <!--<a class="am-gly">Home</a>-->
-            <!--</div>-->
         </div>
     </nav>
     <div class="visible-xs searchBox-xs">
@@ -50,18 +26,19 @@
             <h2 class="am-gly am-event-title-xs">Events for you</h2>
         </div>
         <div class="row">
-            <div ng-repeat="result in model.results" class="am-events-display">
-                <div class="panel panel-default col-xs-12">
+            <div ng-repeat="result in model.results" class="am-events-display col-xs-12">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><a ng-href="#!/{{result.group.urlname}}/events/{{result.id}}">{{result.name}}</a></h4>
+                        <h4>{{result.name}}</h4>
                     </div>
                     <div class="panel-body">
                         <div>
                             <p>{{result.venue.name}}<br>{{result.venue.address_1}}<br>{{result.venue.city}}, <x>{{result.venue.country}}</x>
                             </p>
                         </div>
-                        <a class="btn btn-success btn-default btn-block rsvp"
-                           role="button">Going</a>
+                        <a class="btn btn-primary btn-default btn-block rsvp"
+                           ng-href="#!/{{result.group.urlname}}/events/{{result.id}}"
+                           role="button">Click for details</a>
                     </div>
                 </div>
             </div>
@@ -82,14 +59,14 @@
         <div class="searchBox">
             <input class="form-control home-search"
                    name="text"
-                   ng-model="search.queryTerm"
+                   ng-model="model.queryTerm"
                    placeholder="Search a term for desired events"/>
             <input class="form-control home-search"
                    name="text"
-                   ng-model="search.zipcode"
+                   ng-model="model.zipcode"
                    placeholder="Search a zip code for desired location events"/>
             <a class="btn btn-default"
-               ng-click="model.searchEvent(search.queryTerm, search.zipcode)"
+               ng-click="model.searchEvent(model.queryTerm, model.zipcode)"
                role="button">Search</a>
         </div>
     </div>
@@ -98,18 +75,19 @@
             <h2 class="am-gly am-event-title">Events for you</h2>
         </div>
         <div class="row">
-            <div ng-repeat="result in model.results" class="am-events-display">
-                <div class="panel panel-default col-xs-12">
+            <div ng-repeat="result in model.results" class="am-events-display col-xs-12">
+                <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><a ng-href="#!/{{result.group.urlname}}/events/{{result.id}}">{{result.name}}</a></h4>
+                        <h4>{{result.name}}</h4>
                     </div>
                     <div class="panel-body">
                         <div>
                             <p>{{result.venue.name}}<br>{{result.venue.address_1}}<br>{{result.venue.city}}, <x>{{result.venue.country}}</x>
                             </p>
                         </div>
-                        <a class="btn btn-success btn-default btn-block rsvp"
-                           role="button">Going</a>
+                        <a class="btn btn-primary btn-default btn-block rsvp"
+                           ng-href="#!/{{result.group.urlname}}/events/{{result.id}}"
+                           role="button">Click for details</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +97,10 @@
         <h2 class="am-gly am-event-title">About Us</h2>
         <div class="centered-content">
             <div class="panel-padding">
-                <p class="am-gly">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
+                <p class="am-gly">
+                    This web app let's you RSVP events and share your experience story about it.
+                    Event organizers can create or delete events. Users can follow the Event Organizers. Let's not be bored at home anymore.
+                </p>
             </div>
         </div>
     </div>

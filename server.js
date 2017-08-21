@@ -7,7 +7,7 @@ var session = require('express-session');
 
 app.use(cookieParser());
 app.use(session({
-    secret: 'wdjhgfehrgvjebv',
+    secret: process.env.SECRET || 'Yo Yo Cammy Singh',
     resave: true,
     saveUninitialized:true
 }));

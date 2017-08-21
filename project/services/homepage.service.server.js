@@ -6,7 +6,7 @@ const https = require("https");
 app.get('/find/events', searchEvent);
 app.get('/:urlname/events/:id', findEventbyId);
 
-var appKey = "162d592f5c53704651484b4c2c104f23";
+var appKey = process.env.MEETUP_API_KEY || "162d592f5c53704651484b4c2c104f23";
 
 function searchEvent(req, res) {
     var text = req.query.text.replace(/\s/gi,"+");

@@ -12,6 +12,14 @@ var userSchema = mongoose.Schema({
     followers: [{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"}],
     // _wishlist: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}],
     rsvp_events: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}],
-    events: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}]
+    events: [{type: mongoose.Schema.Types.ObjectId, ref:"EventModel"}],
+    facebook: {
+        id:    String,
+        token: String
+    },
+    google: {
+        id:    String,
+        token: String
+    }
 }, {collection: "userproject"});
 module.exports = userSchema;

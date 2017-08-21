@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var userSchema = require("./users.schema.server");
-// var db = require("./database");
 
 var userModel =  mongoose.model("UserModel", userSchema);
 
@@ -11,15 +10,18 @@ userModel.findUserByCredentials = findUserByCredentials;
 userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.getAllUsers = getAllUsers;
-// userModel.removeFromFollowersList = removeFromFollowersList;
-// userModel.removeFromFollowingList = removeFromFollowingList;
 userModel.followUser = followUser;
 userModel.unfollowUser = unfollowUser;
 userModel.addEvent = addEvent;
-userModel.findEventsByUser = findEventsByUser;
-// userModel.removeWebsite = removeWebsite;
+userModel.findUserByGoogleId = findUserByGoogleId;
+userModel.findUserByFacebookId = findUserByFacebookId;
+userModel.addToRsvpEvents = addToRsvpEvents;
+userModel.removeEvent = removeEvent;
+userModel.findAllUsers = findAllUsers;
 
 module.exports = userModel;
+
+var eventModel = require("./events.model.server");
 
 function createUser(user) {
     return userModel.create(user);
@@ -55,6 +57,10 @@ function deleteUser(userId) {
 function getAllUsers() {
     var userRole = "Event Organizer";
     return userModel.find({roles: userRole});
+}
+
+function findAllUsers() {
+    return userModel.find();
 }
 
 function followUser(organizer, userId) {
@@ -93,26 +99,6 @@ function unfollowUser(organizer, userId) {
         });
 }
 
-// function removeFromFollowersList(userId, followerId) {
-//     return userModel
-//         .findById(followerId)
-//         .then(function (user) {
-//             var index = user.following.indexOf(userId);
-//             user.following.splice(index, 1);
-//             return user.save();
-//         });
-// }
-//
-// function removeFromFollowingList(userId, followingId) {
-//     return userModel
-//         .findById(followingId)
-//         .then(function (user) {
-//             var index = user.followers.indexOf(userId);
-//             user.followers.splice(index, 1);
-//             return user.save();
-//         });
-// }
-
 function addEvent(userId, eventId) {
     return userModel
         .findById(userId)
@@ -122,6 +108,37 @@ function addEvent(userId, eventId) {
         });
 }
 
-function findEventsByUser(userId) {
-    return userModel.findUserById(userId);
+function findUserByGoogleId(googleId) {
+    return userModel.findOne({'google.id': googleId});
+}
+
+function findUserByFacebookId(facebookId) {
+    return userModel.findOne({'facebook.id': facebookId});
+}
+
+function addToRsvpEvents(event, userId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            user.rsvp_events.push(event._id);
+            return user.save()
+                .then(function (response) {
+                    return eventModel
+                        .findById(event._id)
+                        .then(function (event) {
+                            event.user_rsvps.push(userId);
+                            return event.save();
+                        });
+                });
+        });
+
+}
+
+function removeEvent(userId, eventId) {
+    return userModel.findUserById(userId)
+        .then(function (user) {
+            var index = user.events.indexOf(eventId);
+            user.events.splice(index, 1);
+            return user.save();
+        });
 }

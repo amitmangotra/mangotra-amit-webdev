@@ -1,60 +1,47 @@
 <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+            <div class="navbar-text pull-right hidden-xs"><a class="am-gly" ng-click="model.logout()">Logout</a></div>
+            <div ng-if="model.user.roles === 'End User'"
+                 class="navbar-text pull-right visible-xs">
+                <a class="am-gly" ng-href="#!/story/new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <div ng-if="model.user.roles === 'Event Organizer'"
+                 class="navbar-text pull-right visible-xs">
+                <a class="am-gly" ng-href="#!/event/new">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+            <div class="navbar-text pull-right hidden-xs">
+                <a ng-href="#!/search"class="am-gly">
+                    Search<span class="fa fa-search"></span>
+                </a>
+            </div>
+            <div ng-if="model.user.roles === 'End User'"
+                 class="navbar-text pull-right hidden-xs">
+                <a class="am-gly" ng-href="#!/story/new">
+                    Share Story
+                </a>
+            </div>
+            <div ng-if="model.user.roles === 'Event Organizer'"
+                 class="navbar-text pull-right hidden-xs">
+                <a class="am-gly" ng-href="#!/event/new">
+                    Create Event
+                </a>
+            </div>
             <div class="navbar-header">
-                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" ng-href="#!/">ExperienceIt-ShareIt</a>
+                <a class="navbar-brand">ExperienceIt-ShareIt</a>
             </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav nav-pills navbar-right">
-                    <li><div class="navbar-text"><a class="am-gly" href="#">Home</a></div></li>
-                    <li><div class="navbar-text"><a class="am-gly" href="#">Stories</a></div></li>
-                    <li>
-                        <div ng-if="model.user.roles === 'Event Organizer'"
-                             class="navbar-text">
-                            <a class="am-gly" ng-href="#!/event/new">
-                                Create Event
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div ng-if="model.user.roles === 'End User'"
-                             class="navbar-text">
-                            <a class="am-gly" ng-href="#!/story/new">
-                                Share Story
-                            </a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="navbar-text">
-                            <a ng-href="#!/search"class="am-gly">
-                                Search<span class="fa fa-search"></span>
-                            </a>
-                        </div>
-                    </li>
-                    <li><div class="navbar-text"><a class="am-gly" ng-href="#!/">Logout</a></div></li>
-                </ul>
-            </div>
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-            <!--<a class="am-gly" href="#!/login">Login</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-            <!--<a class="am-gly">Create Event</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-            <!--<a class="am-gly">Share Story</a>-->
-            <!--</div>-->
-            <!--<div class="navbar-text hidden-xs pull-right">-->
-            <!--<a class="am-gly">Home</a>-->
-            <!--</div>-->
         </div>
     </nav>
     <div class="container-fluid">
+        <div class="btn btn-default btn-primary visible-xs innerSearch">
+            <a ng-href="#!/search"class="am-gly">
+                Search<span class="fa fa-search"></span>
+            </a>
+        </div>
         <div class="row profile">
             <div class="col-sm-5 col-xs-12">
                 <div class="panel panel-default centered-wrapper">
@@ -168,7 +155,8 @@
                                     <p ng-if="model.user.roles ==='End User'">You have written these stories</p>
                                     <p ng-if="model.user.roles ==='Event Organizer'">Your events have these stories</p>
                                     <p></p>
-                                    <a class="btn btn-default btn-primary">View</a>
+                                    <a class="btn btn-default btn-primary"
+                                       ng-href="#!/stories">View</a>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +168,7 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="visible-xs navbar-text pull-right">
-                <a ng-href="#!/profile">
+                <a ng-click="model.logout()">
                     <span class="glyphicon glyphicon-off am-gly"></span>
                 </a>
             </div>

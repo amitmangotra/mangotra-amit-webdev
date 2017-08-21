@@ -10,22 +10,28 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <h2 class="am-gly centered-wrapper">Events</h2>
+        <h2 class="am-gly centered-wrapper">Stories</h2>
         <div class="col-xs-12">
-            <div ng-repeat="event in model.events" class="panel panel-default">
+            <div ng-repeat="story in model.stories" class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>{{event.title}}</h4>
-                    {{event.address}}
+                    <h4>{{story.title}}</h4>
                 </div>
                 <div class="panel-body">
                     <div>
-                        <p>{{event.description}}</p>
+                        <b>EVENT</b>: {{story.event}}<br>
+                        Description:
+                        <p>{{story.description}}</p><br>
+
+                        <b>Writer</b>: {{story.writer}}
                     </div>
-                    <button ng-hide="model.eventsAlreadyRsvp(event._id)"
-                       class="btn btn-success btn-default rsvp"
-                       ng-click="model.rsvpEvent(event)">Going</button>
-                    <a ng-show="model.eventsAlreadyRsvp(event._id)"
-                       class="rsvp">Already Going</a>
+                    <div ng-if="model.uid === story.writer"
+                         class="centered-wrapper">
+                        <button class="btn btn-danger btn-default rsvp"
+                                ng-click="model.removeStory(story)">
+                            Remove Story
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>

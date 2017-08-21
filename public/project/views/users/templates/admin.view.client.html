@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right"><a class="am-gly" ng-click="model.logout()">Logout</a></div>
+        <div class="navbar-header">
+            <a class="navbar-brand" ng-href="#!/">ExperienceIt-ShareIt</a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Hey Admin</h3>
+        </div>
+        <div ng-repeat="user in model.users"
+             class="panel-body">
+            <ul>
+                <li>
+                    <a class="col-xs-8 col-sm-10">{{user.firstName}} {{user.lastName}}</a>
+                    <a ng-click="model.editUser(user)" class="col-xs-2 col-sm-1"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a ng-click="model.removeUser(user)" class="col-xs-2 col-sm-1"><span class="glyphicon glyphicon-trash"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="centered-wrapper">
+        <div class="panel panel-default centered-content">
+            <div class="panel-heading">
+                <label for="username">Username</label>
+                <input class="form-control"
+                       ng-model="model.newUser.username"
+                       id="username"/>
+                <label for="firstName">First Name</label>
+                <input class="form-control"
+                       ng-model="model.newUser.firstName"
+                       id="firstName"/>
+                <label for="lastName">Last Name</label>
+                <input class="form-control"
+                       ng-model="model.newUser.lastName"
+                       id="lastName"/>
+                <label for="email">Email</label>
+                <input class="form-control"
+                       ng-model="model.newUser.email"
+                       id="email"/>
+                <label for="roles">User Roles</label>
+                <input class="form-control"
+                       ng-model="model.newUser.roles"
+                       id="roles"/>
+
+                <button class="btn btn-default btn-danger btn-block"
+                        ng-click="model.changeUser(model.newUser)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

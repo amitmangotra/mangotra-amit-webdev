@@ -10,7 +10,7 @@
     </div>
 </nav>
 <div class="container-fluid centered-wrapper">
-    <div class="centered-content">
+    <div class="centered-content hidden-xs">
         <div ng-show="model.errorMessage" class="alert alert-danger">
             {{model.errorMessage}}
         </div>
@@ -49,4 +49,55 @@
             </div>
         </div>
     </div>
+    <div class="visible-xs">
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Event details</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-12">
+                    <label for="title">Event Title</label>
+                    <input class="form-control"
+                           name="title"
+                           ng-model="model.event.title"
+                           id ="title1"/>
+                    <label for="address">Address</label>
+                    <input class="form-control"
+                           name="address"
+                           ng-model="model.event.address"
+                           id ="address1"/>
+                    <label for="date">Event Date</label>
+                    <input class="form-control"
+                           type="date"
+                           name="date"
+                           ng-model="model.event.date"
+                           id ="date1"/>
+                    <label for="description">Event Description</label>
+                    <textarea class="form-control"
+                              name="description"
+                              rows="6"
+                              ng-model="model.event.description"
+                              id ="description1"></textarea>
+                    <a class="btn btn-success btn-default btn-block"
+                       ng-click="model.publishEvent(model.event)">Publish Event</a>
+                    <a ng-href="#!/profile" class="btn btn-danger btn-default btn-block">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a ng-href="#!/profile">
+                <span class="glyphicon glyphicon-user am-gly"></span>
+            </a>
+        </div>
+        <div class="navbar-text">
+            <amit class="am-gly">Developed by Amit Mangotra © 2017</amit>
+        </div>
+    </div>
+</nav>

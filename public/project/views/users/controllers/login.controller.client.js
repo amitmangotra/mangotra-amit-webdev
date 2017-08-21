@@ -6,10 +6,11 @@
         .module("ExperienceNearbyHappeningsApp")
         .controller("loginController", loginController);
 
-    function loginController($location, UserService) {
+    function loginController($location, UserService, $rootScope) {
         var model = this;
 
         model.login = login;
+        model.back = back;
 
         function init() {
 
@@ -27,10 +28,18 @@
                     var _user = response.data;
                     if(_user === null) {
                         model.errorMessage = "Invalid username and password";
+                    } else if(_user.roles === 'Admin') {
+                        $location.url("/admin");
                     } else {
                         $location.url("/profile");
                     }
                 });
+        }
+
+        function back() {
+            $rootScope.queryTerm = null;
+            $rootScope.zipcode = null;
+            $location.url('/');
         }
     }
 })();

@@ -1,9 +1,12 @@
 var app = require('../../express');
 var eventModel = require("../models/events.model.server");
 
-app.post('/api/user/:uid/event/new', createEvent);
-app.get('/api/user/:uid/events', findEventsByUser);
+app.post('/api/project/user/:uid/event/new', createEvent);
+app.get('/api/project/user/:uid/events', findEventsByUser);
 app.get('/api/user/events', allEvents);
+app.delete('/api/project/:uid/event/:eventId', removeEvent);
+
+var userModel = require("../models/users.model.server");
 
 function createEvent(req, res) {
     var userId = req.params.uid;
@@ -41,5 +44,15 @@ function allEvents(req, res) {
         }, function (err) {
             res.sendStatus(404).send(err);
             return;
+        });
+}
+
+function removeEvent(req, res) {
+    var userId = req.params.uid;
+    var eventId = req.params.eventId;
+    return eventModel
+        .removeEvent(userId, eventId)
+        .then(function (response) {
+            res.sendStatus(200);
         });
 }

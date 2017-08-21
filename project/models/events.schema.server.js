@@ -6,6 +6,6 @@ var eventSchema = mongoose.Schema({
     description: String,
     organizer: {type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
     user_rsvps: [{type: mongoose.Schema.Types.ObjectId, ref:"UserModel"}],
-    stories: [{type: mongoose.Schema.Types.ObjectId, ref:"StoryModel"}]
+    // stories: [{type: mongoose.Schema.Types.ObjectId, ref:"StoryModel"}]
 }, {collection: "eventproject"});
 module.exports = eventSchema;
