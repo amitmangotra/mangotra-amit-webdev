@@ -1,10 +1,9 @@
 # README:
 
 I am currently pursuing Master's in Computer Science at Northeastern University, Boston. <br />
-Having no industrial experience, I have worked on some academic projects, namely:<br />
+Having no industrial experience, I have worked on academic project, namely:<br />
 * **_INFORMATION RETRIEVAL SYSTEM:_** Using two Retrieval Models (BM-25 Retrieval Model and tf-idf Retrieval Model),
 created a search engine which uses crawled data and generate index to search a given query.<br />
-* **_BLUETOOTH CHAT APP:_** Developed an Android app which uses Bluetooth functionality (instead of mobile data) to text<br /><br />
 
 This repository is for assignments and project for Web Development(CS-5610).<br /><br />
 
